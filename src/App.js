@@ -1,8 +1,11 @@
 import "./App.css";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import Movie from "./Movie";
 import Filter from "./Filter";
+
+// AnimatePresence - it's going to detect the elment that's going to be removed from the DOM
+// and it's going to animate it out
 
 function App() {
   const [popular, setPopular] = useState([]);
@@ -32,11 +35,14 @@ function App() {
         activeGenre={activeGenre}
         setActiveGenre={setActiveGenre}
       />
-      <div className="popular-movies">
-        {filtered.map((movie) => {
-          return <Movie key={movie.id} movie={movie} />;
-        })}
-      </div>
+      <motion.div layout className="popular-movies">
+        {/* adding the fading in and out animation for when the movies render in */}
+        <AnimatePresence>
+          {filtered.map((movie) => {
+            return <Movie key={movie.id} movie={movie} />;
+          })}
+        </AnimatePresence>
+      </motion.div>
     </div>
   );
 }
