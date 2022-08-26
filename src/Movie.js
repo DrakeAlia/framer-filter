@@ -1,5 +1,6 @@
 import { motion } from "framer-motion"
 
+// displaying the movie(s)
 function Movie({ movie }) {
     return (
         <motion.div
