@@ -26,7 +26,7 @@ function App() {
   const fetchPopular = async () => {
     // API key here:
     const data = await fetch(
-      "https://api.themoviedb.org/3/movie/popular?api_key=<<api_key>>&language=en-US&page=1"
+      "https://api.themoviedb.org/3/movie/popular?api_key=00de0014ce5070d289171c22f349aa01"
     );
     // Once we have the data we format it to json
     const movies = await data.json();
