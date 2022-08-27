@@ -25,7 +25,9 @@ function App() {
   // function api
   const fetchPopular = async () => {
     // API key here:
-    const data = await fetch("");
+    const data = await fetch(
+      "https://api.themoviedb.org/3/movie/popular?api_key=<<api_key>>&language=en-US&page=1"
+    );
     // Once we have the data we format it to json
     const movies = await data.json();
     // console.log(movies);
@@ -33,7 +35,7 @@ function App() {
     setPopular(movies.results);
     setFiltered(movies.results);
   };
- 
+
   return (
     <div className="App">
       {/* Our filter commponent were we are changing the state of the filter depending which button we are active on */}
